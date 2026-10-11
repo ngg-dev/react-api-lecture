@@ -413,7 +413,9 @@
 
   const demos = { request: requestDemo, effect: effectDemo, race: raceDemo, architecture: architectureDemo };
   window.LectureDemos = Object.freeze({
-    mount(name, container) {
+    mount(name, container, options = {}) {
+      if (name === 'keys') return window.KeysDemo.mount(container);
+      if (name === 'catalog') return window.CatalogDemo.mount(container, options);
       if (!container || typeof container.append !== 'function') throw new TypeError('LectureDemos.mount requires a DOM container');
       if (!Object.prototype.hasOwnProperty.call(demos, name)) throw new Error('Unknown lecture demo: ' + name);
       styles();

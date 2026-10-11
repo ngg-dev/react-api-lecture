@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { resolve } from 'node:path';
 
 const root = resolve(import.meta.dirname, '..');
-for (const name of ['content.js', 'demos.js', 'app.js']) {
+for (const name of ['content.js', 'demos.js', 'keys-demo.js', 'catalog-demo.js', 'app.js']) {
   new vm.Script(await readFile(resolve(root, name), 'utf8'), { filename: name });
 }
 const context = { window: {} };
@@ -17,8 +17,9 @@ assert.equal(lecture.chapters.reduce((n, c) => n + c.minutes, 0), 70, 'Тайм�
 for (const slide of lecture.slides) {
   assert(slide.title && slide.notes, `Заголовок или заметки отсутствуют: ${slide.id}`);
   assert(chapters.has(slide.chapter), `Неизвестная глава: ${slide.id}`);
-  if (slide.demo) assert(['request', 'effect', 'race', 'architecture'].includes(slide.demo));
+  if (slide.demo) assert(['request', 'effect', 'race', 'architecture', 'keys', 'catalog', 'catalog-story'].includes(slide.demo));
 }
 const html = await readFile(resolve(root, 'index.html'), 'utf8');
 for (const file of ['styles.css', 'content.js', 'demos.js', 'app.js']) assert(html.includes(file), `Не подключен ${file}`);
-console.log(`Проверено: ${lecture.slides.length} слайдов, 70 минут, заметки, связи и синтаксис JS.`);
+assert.equal(lecture.slides.filter(s => !s.extra).reduce((total, s) => total + s.minutes, 0), 70, 'Тайминг слайдов не совпадает с лекцией');
+console.log(`Проверено: ${lecture.slides.length} слайда, 70 минут + практика, связи и синтаксис JS.`);

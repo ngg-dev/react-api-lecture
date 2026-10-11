@@ -6,47 +6,15 @@
     <meta name="theme-color" content="#f5f4ef" />
     <meta name="description" content="Интерактивная лекция: React, HTTP API, загрузка данных, эффекты и сервер учебного проекта." />
     <title>React и API — интерактивная лекция</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="content.js" defer></script>
-    <script src="demos.js" defer></script>
-    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="styles.css?v=hook-motivation-1" />
+    <script src="content.js?v=hook-motivation-1" defer></script>
+    <script src="keys-demo.js?v=hook-motivation-1" defer></script>
+    <script src="catalog-demo.js?v=hook-motivation-1" defer></script>
+    <script src="demos.js?v=hook-motivation-1" defer></script>
+    <script src="app.js?v=hook-motivation-1" defer></script>
   </head>
   <body>
-    <a class="skip-link" href="#slide">Перейти к слайду</a>
-    <div class="lecture-app">
-      <header class="topbar">
-        <a class="brand" href="#" aria-label="React и API: первый слайд"><span class="brand-symbol" aria-hidden="true">↗</span><span>REACT / API</span></a>
-        <span class="lecture-label">Интерактивная лекция</span>
-        <nav class="toolbar" aria-label="Инструменты лекции">
-          <button type="button" class="tool-button" id="overview-open" aria-label="Открыть оглавление" title="Оглавление (O)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12M3 6h1M3 12h1M3 18h1" /></svg><span>Оглавление</span></button>
-          <button type="button" class="tool-button icon-button" id="notes-toggle" aria-label="Показать заметки докладчика" aria-pressed="false" title="Заметки докладчика (N)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18H6zM9 7h6M9 11h6M9 15h3" /></svg></button>
-          <button type="button" class="tool-button icon-button" id="fullscreen-toggle" aria-label="Полноэкранный режим" aria-pressed="false" title="Полноэкранный режим (F)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5" /></svg></button>
-        </nav>
-      </header>
-      <main class="stage" id="stage">
-        <article class="slide" id="slide" tabindex="-1" aria-labelledby="slide-title"></article>
-      </main>
-      <footer class="bottom-bar">
-        <div class="slide-location"><span class="section-index" id="section-index">01</span><span id="chapter-label">Начало</span></div>
-        <div class="slide-meter"><span class="current-number" id="slide-number">01</span><span class="meter-slash">/</span><span id="slide-total">01</span><span class="keyboard-hint">← → для навигации</span></div>
-        <nav class="slide-navigation" aria-label="Навигация по слайдам">
-          <button type="button" id="previous" class="arrow-button" aria-label="Предыдущий слайд" title="Предыдущий слайд (←)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 5-7 7 7 7M7 12h14" /></svg></button>
-          <button type="button" id="next" class="arrow-button arrow-next" aria-label="Следующий слайд" title="Следующий слайд (→)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 5 7 7-7 7M3 12h14" /></svg></button>
-        </nav>
-      </footer>
-      <div class="progress-track" role="progressbar" aria-label="Прогресс лекции" aria-valuemin="1" aria-valuemax="1" aria-valuenow="1" id="lecture-progress"><div id="progress-fill"></div></div>
-    </div>
-    <div id="announcement" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
-    <aside class="notes-panel" id="notes-panel" aria-labelledby="notes-heading" hidden>
-      <div class="panel-header"><div><span class="eyebrow">Для докладчика</span><h2 id="notes-heading">Заметки к слайду</h2></div><button type="button" class="close-button" id="notes-close" aria-label="Закрыть заметки">×</button></div>
-      <div id="notes-content"></div>
-    </aside>
-    <dialog class="overview-dialog" id="overview" aria-labelledby="overview-title">
-      <div class="panel-header"><div><span class="eyebrow">Маршрут лекции</span><h2 id="overview-title">От запроса к интерфейсу</h2></div><button type="button" class="close-button" id="overview-close" aria-label="Закрыть оглавление">×</button></div>
-      <div class="overview-meta" id="overview-meta"></div>
-      <nav id="chapter-list" aria-label="Разделы и слайды лекции"></nav>
-      <div class="overview-shortcuts"><span><kbd>←</kbd><kbd>→</kbd> слайды</span><span><kbd>N</kbd> заметки</span><span><kbd>F</kbd> полный экран</span><span><kbd>Esc</kbd> закрыть</span></div>
-    </dialog>
+    <div id="app"></div>
     <noscript><p class="no-script">Чтобы открыть интерактивную лекцию, включите JavaScript в браузере.</p></noscript>
   </body>
 </html>
